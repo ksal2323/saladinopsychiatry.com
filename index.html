@@ -1185,11 +1185,10 @@
   // Mobile hamburger menu
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
-  const navCta = document.querySelector('.nav-cta');
+  let menuOpen = false;
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = navLinks.style.display === 'flex';
-    navLinks.style.display = isOpen ? 'none' : 'flex';
+  function openMenu() {
+    navLinks.style.display = 'flex';
     navLinks.style.flexDirection = 'column';
     navLinks.style.position = 'fixed';
     navLinks.style.top = '72px';
@@ -1200,13 +1199,31 @@
     navLinks.style.gap = '24px';
     navLinks.style.zIndex = '99';
     navLinks.style.borderBottom = '1px solid rgba(26,39,64,0.1)';
+    menuOpen = true;
+  }
+
+  function closeMenu() {
+    navLinks.style.display = 'none';
+    menuOpen = false;
+  }
+
+  hamburger.addEventListener('click', () => {
+    menuOpen ? closeMenu() : openMenu();
   });
 
-  // Close menu when a link is clicked
+  // Close menu when a link is clicked (mobile only)
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.style.display = 'none';
+      if (window.innerWidth <= 900) closeMenu();
     });
+  });
+
+  // Reset nav on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      navLinks.style.display = '';
+      menuOpen = false;
+    }
   });
 
   // Contact form Formspree submission
