@@ -1180,6 +1180,33 @@
 </footer>
 
 <script>
+  // Mobile hamburger menu
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const navCta = document.querySelector('.nav-cta');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.style.display === 'flex';
+    navLinks.style.display = isOpen ? 'none' : 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'fixed';
+    navLinks.style.top = '72px';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = 'rgba(247,244,239,0.98)';
+    navLinks.style.padding = '24px 28px 32px';
+    navLinks.style.gap = '24px';
+    navLinks.style.zIndex = '99';
+    navLinks.style.borderBottom = '1px solid rgba(26,39,64,0.1)';
+  });
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.style.display = 'none';
+    });
+  });
+
   // Contact form Formspree submission
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', async function(e) {
