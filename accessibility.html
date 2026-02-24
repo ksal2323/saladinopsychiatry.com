@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility | Kevin Saladino, MD — Psychiatry</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2740;
+    --cream: #f7f4ef;
+    --cream-dark: #ede9e1;
+    --sage: #7a9e8e;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--text); font-weight: 300; }
+
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(247,244,239,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,39,64,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; line-height: 1.3; }
+  .nav-logo span { display: block; font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-top: 2px; }
+  .nav-back { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); text-decoration: none; border-bottom: 1px solid var(--sage); padding-bottom: 2px; }
+
+  .page-header { background: var(--navy); padding: 80px 60px; }
+  .page-header p { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; }
+  .page-header h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--cream); }
+  .page-header .updated { font-family: var(--sans); font-size: 0.75rem; color: rgba(247,244,239,0.4); margin-top: 16px; letter-spacing: 0.08em; }
+
+  .content { max-width: 780px; margin: 0 auto; padding: 80px 60px; }
+
+  .content h2 {
+    font-family: var(--serif); font-size: 1.4rem; font-weight: 500; color: var(--navy);
+    margin-top: 52px; margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid rgba(26,39,64,0.1);
+  }
+  .content h2:first-child { margin-top: 0; }
+  .content p { font-family: var(--serif); font-size: 1rem; line-height: 1.9; color: var(--text-light); margin-bottom: 16px; }
+  .content ul { margin: 12px 0 20px 20px; }
+  .content ul li { font-family: var(--serif); font-size: 1rem; line-height: 1.9; color: var(--text-light); margin-bottom: 6px; }
+  .content a { color: var(--sage); text-decoration: none; border-bottom: 1px solid var(--sage); }
+
+  .commitment-box {
+    background: var(--navy);
+    padding: 40px 48px;
+    margin-bottom: 48px;
+  }
+  .commitment-box p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: rgba(247,244,239,0.8);
+    margin-bottom: 0;
+  }
+
+  footer { background: var(--navy); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: var(--serif); font-size: 1rem; color: var(--cream); }
+  .footer-copy { font-size: 0.75rem; color: rgba(247,244,239,0.3); }
+
+  @media (max-width: 700px) {
+    nav { padding: 20px 24px; }
+    .page-header { padding: 60px 24px; }
+    .content { padding: 48px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    Kevin Saladino, MD
+    <span>Psychiatry</span>
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-header">
+  <p>Accessibility</p>
+  <h1>Accessibility Statement</h1>
+  <p class="updated">Last updated: February 2026</p>
+</div>
+
+<div class="content">
+
+  <div class="commitment-box">
+    <p>Kevin Saladino, MD is committed to ensuring that this website is accessible to all people, including those with disabilities. We believe everyone deserves equal access to healthcare information.</p>
+  </div>
+
+  <h2>Our Commitment</h2>
+  <p>We strive to meet the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. These guidelines explain how to make web content more accessible to people with a wide range of disabilities, including visual, auditory, physical, speech, cognitive, and neurological disabilities.</p>
+
+  <h2>Measures We Have Taken</h2>
+  <p>In designing this website, we have made efforts to ensure:</p>
+  <ul>
+    <li>Sufficient color contrast between text and background</li>
+    <li>Text that can be resized without loss of content or functionality</li>
+    <li>Descriptive link text to assist screen reader users</li>
+    <li>A logical and consistent page structure with proper heading hierarchy</li>
+    <li>The site is navigable by keyboard alone</li>
+    <li>The site is responsive and usable on mobile devices</li>
+  </ul>
+
+  <h2>Known Limitations</h2>
+  <p>While we strive for full accessibility, some areas of this website may not yet fully meet WCAG 2.1 AA standards. We are actively working to identify and address any gaps. If you encounter a barrier, please let us know so we can address it promptly.</p>
+
+  <h2>Alternative Access</h2>
+  <p>If you are unable to access any content or functionality on this website due to a disability, we are happy to provide the information in an alternative format. Please contact our office directly and we will do our best to assist you in a timely manner.</p>
+
+  <h2>Feedback & Contact</h2>
+  <p>We welcome your feedback on the accessibility of this website. If you experience any difficulty accessing content, please contact us using the information on our <a href="index.html#contact">Contact page</a>. We aim to respond to accessibility concerns within 2 business days.</p>
+
+  <h2>Ongoing Efforts</h2>
+  <p>Accessibility is an ongoing commitment. We review this website periodically and make updates as needed. This statement was last reviewed in February 2026.</p>
+
+</div>
+
+<footer>
+  <p class="footer-logo">Kevin Saladino, MD — Psychiatry</p>
+  <p class="footer-copy">© 2026 Kevin Saladino, MD. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
