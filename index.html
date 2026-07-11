@@ -1286,13 +1286,25 @@
   window.addEventListener('resize', updateNavHeight);
   window.addEventListener('load', updateNavHeight);
 
-  // Pre-shrink the nav before jumping to an anchor, so the scroll offset
-  // used to compute the destination matches the nav's final (scrolled) height
-  // instead of the taller, unscrolled height it may still have at click time.
+  // Manually compute and perform the scroll for anchor links instead of
+  // relying on the browser's native fragment-scroll behavior. The native
+  // behavior calculates the destination once, using whatever layout exists
+  // at that instant — if the nav hasn't visually shrunk yet, or fonts/images
+  // are still settling right after page load, the browser can lock in a
+  // stale target and land slightly off. Computing live with
+  // getBoundingClientRect() at the moment of the click avoids that.
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', () => {
+    const targetId = link.getAttribute('href').slice(1);
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
       nav.classList.add('scrolled');
       updateNavHeight();
+      const destination = target.getBoundingClientRect().top + window.pageYOffset - nav.offsetHeight;
+      window.scrollTo({ top: destination, behavior: 'smooth' });
+      history.pushState(null, '', '#' + targetId);
     });
   });
 </script>
