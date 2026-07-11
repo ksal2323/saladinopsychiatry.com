@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="3QsR4uN9VbGBAlDOqibSvEbOSf_62BKRH85hTWG-b7A">
 <title>Kevin Saladino, MD | Psychiatrist in Oakbrook Terrace, IL</title>
-<meta name="description" content="Dr. Kevin Saladino, MD offers thoughtful, evidence-based psychiatric care in Oakbrook Terrace, IL, serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, and the greater Chicago western suburbs. In-person and telehealth appointments available.">
+<meta name="description" content="Dr. Kevin Saladino, MD offers thoughtful, evidence-based psychiatric care in Oakbrook Terrace, IL, serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, Burr Ridge, and the greater Chicago western suburbs. In-person and telehealth appointments available.">
 <link rel="canonical" href="https://saladinopsychiatry.com/">
 <link rel="icon" type="image/png" href="favicon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kevin Saladino, MD | Psychiatrist in Oakbrook Terrace, IL">
-<meta property="og:description" content="Thoughtful, evidence-based psychiatric care in Oakbrook Terrace, IL, serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, and the greater Chicago western suburbs.">
+<meta property="og:description" content="Thoughtful, evidence-based psychiatric care in Oakbrook Terrace, IL, serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, Burr Ridge, and the greater Chicago western suburbs.">
 <meta property="og:image" content="https://saladinopsychiatry.com/photo.jpg">
 <meta property="og:url" content="https://saladinopsychiatry.com/">
 <meta property="og:site_name" content="Kevin Saladino, MD — Psychiatry">
@@ -37,11 +37,14 @@
     "Western Springs, IL",
     "La Grange, IL",
     "Elmhurst, IL",
+    "Burr Ridge, IL",
     "Oakbrook Terrace, IL"
   ],
   "url": "https://saladinopsychiatry.com"
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -86,6 +89,8 @@
     border-bottom: 1px solid rgba(26,39,64,0.08);
     transition: padding 0.3s ease;
   }
+
+  nav.scrolled { padding: 16px 60px; }
 
   .nav-logo {
     font-family: var(--serif);
@@ -156,9 +161,9 @@
 
   /* ── HERO ─────────────────────────────────────── */
   #home {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
     padding-top: 90px;
   }
 
@@ -167,6 +172,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 80px 60px 80px 60px;
+    max-width: 780px;
     position: relative;
   }
 
@@ -178,18 +184,6 @@
     background: linear-gradient(to bottom, transparent, var(--sage), transparent);
     opacity: 0;
     animation: fadeIn 1.2s ease 0.4s forwards;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--sans);
-    font-size: 0.68rem;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: slideUp 0.8s ease 0.2s forwards;
   }
 
   .hero-title {
@@ -259,67 +253,13 @@
 
   .btn-secondary:hover { color: var(--sage); border-color: var(--sage); }
 
-  .hero-right {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px;
-  }
-
-  .hero-right::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 60%, rgba(122,158,142,0.18) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(184,151,106,0.08) 0%, transparent 50%);
-  }
-
-  .hero-pattern {
-    position: absolute;
-    top: 0; right: 0;
-    width: 200px; height: 200px;
-    border-left: 1px solid rgba(122,158,142,0.2);
-    border-bottom: 1px solid rgba(122,158,142,0.2);
-  }
-
-  .hero-pattern::before {
-    content: '';
-    position: absolute;
-    top: 40px; left: 40px;
-    right: -40px; bottom: -40px;
-    border-left: 1px solid rgba(122,158,142,0.1);
-    border-bottom: 1px solid rgba(122,158,142,0.1);
-  }
-
-  .hero-quote {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-
-  .hero-quote blockquote {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 300;
-    font-style: italic;
-    color: rgba(247,244,239,0.85);
-    line-height: 1.65;
-    margin-bottom: 20px;
-  }
-
-  .hero-quote cite {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    font-style: normal;
-  }
 
   /* ── PILLARS ──────────────────────────────────── */
+  .process-header {
+    background: var(--cream-dark);
+    padding: 64px 60px 0 60px;
+  }
+
   .pillars {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -363,6 +303,7 @@
 
   /* ── SECTIONS SHARED ──────────────────────────── */
   section { padding: 100px 60px; }
+  .section-compact { padding: 80px 60px; }
 
   .section-label {
     font-family: var(--sans);
@@ -406,43 +347,6 @@
 
   .about-image-wrap {
     position: relative;
-  }
-
-  .about-image-placeholder {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about-image-placeholder::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 40% 60%, rgba(122,158,142,0.2) 0%, transparent 60%);
-  }
-
-  .about-image-placeholder svg {
-    width: 80px; height: 80px;
-    color: rgba(247,244,239,0.3);
-    position: relative;
-    z-index: 1;
-  }
-
-  .about-image-placeholder span {
-    font-family: var(--sans);
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(247,244,239,0.4);
-    position: relative;
-    z-index: 1;
   }
 
   .about-photo {
@@ -599,35 +503,6 @@
     align-items: start;
   }
 
-  .insurance-list {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .insurance-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(26,39,64,0.1);
-    font-size: 0.9rem;
-  }
-
-  .insurance-item:first-child { border-top: 1px solid rgba(26,39,64,0.1); }
-
-  .insurance-name { color: var(--navy); font-weight: 400; }
-  .insurance-status {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--sage);
-    background: rgba(122,158,142,0.12);
-    padding: 4px 12px;
-  }
-
   .fees-box {
     background: var(--navy);
     padding: 48px;
@@ -772,6 +647,17 @@
   }
 
   .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a9e8e' stroke-width='1.5'><path stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .form-group select:invalid { color: var(--text-light); }
 
   .form-submit {
     font-family: var(--sans);
@@ -945,22 +831,23 @@
   .hamburger { display: none; background: none; border: none; cursor: pointer; }
 
   @media (max-width: 900px) {
-    nav { padding: 20px 28px; }
+    nav, nav.scrolled { padding: 20px 28px; }
 
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .hamburger { display: flex; flex-direction: column; gap: 5px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--navy); }
 
-    #home { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 60px 28px; align-items: center; text-align: center; }
+    #home { min-height: auto; }
+    .hero-left { padding: 60px 28px; align-items: center; text-align: center; max-width: none; }
     .hero-actions { justify-content: center; }
-    .hero-right { min-height: 300px; padding: 40px 28px; }
 
+    .process-header { padding: 40px 28px 0 28px; }
     .pillars { grid-template-columns: 1fr; }
     .pillar { border-right: none; border-bottom: 1px solid rgba(26,39,64,0.08); }
 
     section { padding: 60px 28px; }
+    .section-compact { padding: 48px 28px; }
 
     .expect-grid { grid-template-columns: 1fr 1fr; }
     .expect-step { padding: 28px 20px; border-right: none; border-bottom: 1px solid rgba(26,39,64,0.1); }
@@ -996,7 +883,7 @@
     <li><a href="#insurance">Fees</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Book Consultation</a>
+  <a href="#contact" class="nav-cta">Free Consultation</a>
   <button class="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1012,19 +899,16 @@
       A private psychiatric practice committed to unhurried, personalized, and evidence-based care — centered on you as a whole person.
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Schedule a Consultation</a>
+      <a href="#contact" class="btn-primary">Schedule a Free Consultation</a>
       <a href="#about" class="btn-secondary">Learn More</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-pattern"></div>
-    <div class="hero-quote">
-      <blockquote>"The most important thing in communication is hearing what isn't said."</blockquote>
     </div>
   </div>
 </section>
 
 <!-- PILLARS -->
+<div class="process-header">
+  <h2 class="section-label reveal" style="margin-bottom:0;">Our Approach</h2>
+</div>
 <div class="pillars">
   <div class="pillar reveal">
     <div class="pillar-num">01</div>
@@ -1072,7 +956,7 @@
 <section id="services">
   <p class="section-label">Clinical Services</p>
   <h2 class="section-title">Specialized <em>Psychiatric</em> Care</h2>
-  <p class="services-intro">Dr. Saladino offers a range of services designed to address the full spectrum of adult psychiatric needs, from initial evaluation through ongoing care.</p>
+  <p class="services-intro">Dr. Saladino offers a range of services designed to address the full spectrum of psychiatric needs for patients ages 16 and older, from initial evaluation through ongoing care.</p>
 
   <div class="services-grid">
     <div class="service-card reveal">
@@ -1130,7 +1014,7 @@
 </section>
 
 <!-- WHAT TO EXPECT -->
-<section style="background:var(--cream);padding:100px 60px;">
+<section style="background:var(--cream);">
   <p class="section-label">Getting Started</p>
   <h2 class="section-title">What to <em>Expect</em></h2>
   <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.85;color:var(--text-light);max-width:580px;margin-bottom:64px;">Seeking psychiatric care for the first time can feel uncertain. Here is a simple overview of what the process looks like with Dr. Saladino.</p>
@@ -1139,7 +1023,7 @@
     <div class="expect-step">
       <div class="expect-num">01</div>
       <h3 class="expect-title">Reach Out</h3>
-      <p class="expect-text">Send a message through the contact form or call the office. You will hear back to confirm availability and answer any initial questions.</p>
+      <p class="expect-text">Send a message through the contact form or call the office. A complimentary 15-minute phone consultation is available to answer initial questions and see if it's a good fit before scheduling your first appointment.</p>
     </div>
     <div class="expect-step">
       <div class="expect-num">02</div>
@@ -1160,7 +1044,7 @@
 
   <div class="expect-banner">
     <p class="expect-banner-text">You do not need to have everything figured out before reaching out. The first step is simply starting the conversation.</p>
-    <a href="#contact" class="expect-banner-cta">Schedule a Consultation</a>
+    <a href="#contact" class="expect-banner-cta">Schedule a Free Consultation</a>
   </div>
 </section>
 
@@ -1183,6 +1067,10 @@
         <span>Fee</span>
       </div>
       <div class="fee-row">
+        <span class="fee-label">Complimentary Phone Consultation (15 min)</span>
+        <span class="fee-amount">Free</span>
+      </div>
+      <div class="fee-row">
         <span class="fee-label">Initial Evaluation (60 min)</span>
         <span class="fee-amount">$500</span>
       </div>
@@ -1199,18 +1087,8 @@
   </div>
 </section>
 
-<!-- COMPLIMENTARY CONSULTATION -->
-<section style="background:var(--cream);padding:80px 60px;">
-  <div class="reveal" style="max-width:720px;">
-    <p class="section-label">Not Sure Where to Start?</p>
-    <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.1rem);">Complimentary 15-Minute <em>Consultation</em></h2>
-    <p style="font-family:var(--serif);font-size:1rem;line-height:1.85;color:var(--text-light);">Choosing a psychiatrist is a personal decision. Dr. Saladino offers a complimentary 15-minute phone consultation to prospective patients to answer questions about his practice, discuss what you are looking for in treatment, and explain how he approaches psychiatric care.</p>
-    <p style="font-family:var(--serif);font-size:0.9rem;line-height:1.8;color:var(--text-light);opacity:0.75;margin-top:14px;">This conversation is informational only and does not include psychiatric evaluation, diagnosis, or treatment.</p>
-  </div>
-</section>
-
 <!-- CONCIERGE -->
-<section style="background:var(--cream-dark);padding:80px 60px;">
+<section class="section-compact" style="background:var(--cream-dark);">
   <div class="reveal" style="max-width:720px;">
     <p class="section-label">Additional Options</p>
     <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.1rem);">Concierge Visit <em>Options</em></h2>
@@ -1247,7 +1125,7 @@
         <div>
           <p class="contact-item-label">Location</p>
           <p class="contact-item-value">One Lincoln Centre<br>18 West 140 Butterfield Road, Suite 1500<br>Oakbrook Terrace, IL</p>
-          <p style="font-family:var(--sans);font-size:0.78rem;color:var(--text-light);margin-top:8px;">Proudly serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, and surrounding Chicago suburbs.</p>
+          <p style="font-family:var(--sans);font-size:0.78rem;color:var(--text-light);margin-top:8px;">Proudly serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, Burr Ridge, and surrounding Chicago suburbs.</p>
         </div>
       </div>
     </div>
@@ -1276,6 +1154,18 @@
         <input type="tel" name="phone" placeholder="(555) 000-0000">
       </div>
       <div class="form-group">
+        <label>How Did You Hear About Us?</label>
+        <select name="referral_source">
+          <option value="" disabled selected>Please select an option</option>
+          <option value="Google Search">Google Search</option>
+          <option value="Psychology Today">Psychology Today</option>
+          <option value="Family or Friend">Family or Friend</option>
+          <option value="Healthcare Provider Referral">Healthcare Provider Referral</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label>Message (Optional)</label>
         <textarea name="message" placeholder="Please share any details that would help Dr. Saladino prepare for your consultation..."></textarea>
       </div>
@@ -1302,7 +1192,8 @@
   <div>
     <p class="footer-logo">Kevin Saladino, MD — Psychiatry</p>
     <p class="footer-tagline">Thoughtful psychiatric care. Centered on you.</p>
-    <p class="footer-tagline" style="margin-top:10px;">One Lincoln Centre, 18 West 140 Butterfield Road, Suite 1500, Oakbrook Terrace, IL &nbsp;·&nbsp; <a href="tel:16305578244" style="color:inherit;text-decoration:none;">(630) 557-8244</a></p>
+    <p class="footer-tagline" style="margin-top:14px;line-height:1.6;">One Lincoln Centre<br>18 West 140 Butterfield Road, Suite 1500<br>Oakbrook Terrace, IL</p>
+    <p class="footer-tagline" style="margin-top:8px;"><a href="tel:16305578244" style="color:inherit;text-decoration:none;">(630) 557-8244</a></p>
   </div>
   <div class="footer-right">
     <p class="footer-copy">© 2026 Kevin Saladino, MD. All rights reserved.</p>
@@ -1374,7 +1265,7 @@
   // Scroll nav shrink
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
-    nav.style.padding = window.scrollY > 60 ? '16px 60px' : '24px 60px';
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 </script>
 
