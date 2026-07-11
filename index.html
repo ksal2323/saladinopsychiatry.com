@@ -679,12 +679,12 @@
     font-size: 1.05rem;
     font-weight: 400;
     color: var(--cream);
-    margin-bottom: 3px;
+    margin-bottom: 8px;
   }
 
   .footer-tagline {
     font-size: 0.78rem;
-    line-height: 1.3;
+    line-height: 1.6;
     color: rgba(247,244,239,0.4);
     letter-spacing: 0.06em;
   }
@@ -1193,8 +1193,8 @@
   <div>
     <p class="footer-logo">Kevin Saladino, MD — Psychiatry</p>
     <p class="footer-tagline">Thoughtful psychiatric care. Centered on you.</p>
-    <p class="footer-tagline" style="margin-top:6px;">One Lincoln Centre<br>18 West 140 Butterfield Road, Suite 1500<br>Oakbrook Terrace, IL</p>
-    <p class="footer-tagline" style="margin-top:4px;"><a href="tel:16305578244" style="color:inherit;text-decoration:none;">(630) 557-8244</a></p>
+    <p class="footer-tagline" style="margin-top:16px;">One Lincoln Centre<br>18 West 140 Butterfield Road, Suite 1500<br>Oakbrook Terrace, IL</p>
+    <p class="footer-tagline" style="margin-top:10px;"><a href="tel:16305578244" style="color:inherit;text-decoration:none;">(630) 557-8244</a></p>
   </div>
   <div class="footer-right">
     <p class="footer-copy">© 2026 Kevin Saladino Psychiatry, PLLC. All rights reserved.</p>
@@ -1278,9 +1278,25 @@
     updateNavHeight();
   });
 
-  // Keep scroll-margin-top in sync with the nav's actual rendered height
+  // Keep scroll-margin-top in sync with the nav's actual rendered height.
+  // The nav's padding transitions over 0.3s when the "scrolled" class is
+  // toggled, and a synchronous offsetHeight read taken the instant the class
+  // changes still reflects the pre-transition height (the animation hasn't
+  // progressed yet) rather than the final target height. Briefly disabling
+  // the transition forces an accurate read of the true final height; the
+  // transition is restored immediately after so the visual animation is
+  // unaffected.
+  function getNavHeight() {
+    const prevTransition = nav.style.transition;
+    nav.style.transition = 'none';
+    void nav.offsetHeight;
+    const h = nav.offsetHeight;
+    nav.style.transition = prevTransition;
+    return h;
+  }
+
   function updateNavHeight() {
-    document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+    document.documentElement.style.setProperty('--nav-height', getNavHeight() + 'px');
   }
   updateNavHeight();
   window.addEventListener('resize', updateNavHeight);
@@ -1301,8 +1317,9 @@
     link.addEventListener('click', function(e) {
       e.preventDefault();
       nav.classList.add('scrolled');
-      updateNavHeight();
-      const destination = target.getBoundingClientRect().top + window.pageYOffset - nav.offsetHeight;
+      const navHeight = getNavHeight();
+      document.documentElement.style.setProperty('--nav-height', navHeight + 'px');
+      const destination = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
       window.scrollTo({ top: destination, behavior: 'smooth' });
       history.pushState(null, '', '#' + targetId);
     });
