@@ -5,14 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="3QsR4uN9VbGBAlDOqibSvEbOSf_62BKRH85hTWG-b7A">
 <title>Kevin Saladino, MD | Psychiatrist in Oakbrook Terrace, IL</title>
-<meta name="description" content="Dr. Kevin Saladino, MD offers thoughtful, evidence-based psychiatric care in Oakbrook Terrace, IL, serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, Burr Ridge, and the greater Chicago western suburbs. In-person and telehealth appointments available.">
+<meta name="description" content="Dr. Kevin Saladino, MD — psychiatrist in Oakbrook Terrace, IL, serving Oak Brook, Hinsdale, Elmhurst & the western suburbs. In-person and telehealth appointments.">
 <link rel="canonical" href="https://saladinopsychiatry.com/">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="theme-color" content="#1a2740">
+<link rel="preload" as="image" href="photo.jpg">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kevin Saladino, MD | Psychiatrist in Oakbrook Terrace, IL">
 <meta property="og:description" content="Thoughtful, evidence-based psychiatric care in Oakbrook Terrace, IL, serving Oak Brook, Hinsdale, Western Springs, La Grange, Elmhurst, Burr Ridge, and the greater Chicago western suburbs.">
-<meta property="og:image" content="https://saladinopsychiatry.com/photo.jpg">
+<meta property="og:image" content="https://saladinopsychiatry.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://saladinopsychiatry.com/">
 <meta property="og:site_name" content="Kevin Saladino, MD — Psychiatry">
 
@@ -22,6 +27,8 @@
   "@type": "Physician",
   "name": "Kevin Saladino, MD",
   "medicalSpecialty": "Psychiatry",
+  "image": "https://saladinopsychiatry.com/photo.jpg",
+  "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "One Lincoln Centre, 18 West 140 Butterfield Road, Suite 1500",
@@ -74,7 +81,7 @@
   }
 
   section, #home, #about, #services, #insurance, #contact {
-    scroll-margin-top: 65px;
+    scroll-margin-top: var(--nav-height, 65px);
   }
   nav {
     position: fixed;
@@ -161,9 +168,9 @@
 
   /* ── HERO ─────────────────────────────────────── */
   #home {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding-top: 90px;
   }
 
@@ -172,7 +179,6 @@
     flex-direction: column;
     justify-content: center;
     padding: 80px 60px 80px 60px;
-    max-width: 780px;
     position: relative;
   }
 
@@ -253,11 +259,24 @@
 
   .btn-secondary:hover { color: var(--sage); border-color: var(--sage); }
 
+  .hero-right {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    display: block;
+  }
 
   /* ── PILLARS ──────────────────────────────────── */
   .process-header {
     background: var(--cream-dark);
-    padding: 64px 60px 0 60px;
+    padding: 48px 60px 0 60px;
   }
 
   .pillars {
@@ -267,7 +286,7 @@
   }
 
   .pillar {
-    padding: 56px 48px;
+    padding: 20px 48px 36px 48px;
     border-right: 1px solid rgba(26,39,64,0.08);
     position: relative;
     overflow: hidden;
@@ -284,7 +303,7 @@
     font-weight: 300;
     color: rgba(26,39,64,0.07);
     line-height: 1;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   .pillar h3 {
@@ -292,7 +311,7 @@
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--navy);
-    margin-bottom: 14px;
+    margin-bottom: 8px;
   }
 
   .pillar p {
@@ -302,8 +321,8 @@
   }
 
   /* ── SECTIONS SHARED ──────────────────────────── */
-  section { padding: 100px 60px; }
-  .section-compact { padding: 80px 60px; }
+  section { padding: 48px 60px; }
+  .section-compact { padding: 48px 60px; }
 
   .section-label {
     font-family: var(--sans);
@@ -338,38 +357,34 @@
 
   /* ── ABOUT ────────────────────────────────────── */
   #about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
     background: var(--cream);
   }
 
-  .about-image-wrap {
-    position: relative;
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 64px;
+    align-items: start;
   }
 
-  .about-photo {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    display: block;
-    position: relative;
+  .credential-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-top: 36px;
+    margin-bottom: 12px;
   }
 
-  .about-image-accent {
-    position: absolute;
-    bottom: -24px; right: -24px;
-    width: 120px; height: 120px;
-    border: 2px solid var(--sage);
-    z-index: -1;
-  }
-
-  .about-credentials {
+  .credential-box {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 36px;
+    background: rgba(122,158,142,0.06);
+    border: 1px solid rgba(122,158,142,0.3);
+    padding: 24px 28px;
   }
 
   .credential {
@@ -386,25 +401,6 @@
     border-radius: 50%;
     background: var(--sage);
     flex-shrink: 0;
-  }
-
-  .membership-label {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-top: 28px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(26,39,64,0.08);
-    margin-bottom: 10px;
-  }
-
-  .membership-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
   }
 
   .about-text p {
@@ -430,7 +426,7 @@
     line-height: 1.8;
     color: rgba(247,244,239,0.65);
     max-width: 580px;
-    margin-bottom: 60px;
+    margin-bottom: 32px;
   }
 
   .services-grid {
@@ -478,29 +474,19 @@
     gap: 16px 32px;
   }
 
-  .condition-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: rgba(247,244,239,0.7);
-  }
-
-  .condition-item::before {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--sage-light);
-    flex-shrink: 0;
-  }
 
   /* ── INSURANCE ────────────────────────────────── */
   #insurance {
     background: var(--cream-dark);
+    padding-top: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: start;
+  }
+
+  #insurance > div {
+    padding-top: 48px;
   }
 
   .fees-box {
@@ -512,14 +498,15 @@
   .fee-row {
     display: flex;
     justify-content: space-between;
+    gap: 16px;
     padding: 16px 0;
     border-bottom: 1px solid rgba(247,244,239,0.08);
     font-size: 0.9rem;
   }
 
   .fee-row:first-child { border-top: 1px solid rgba(247,244,239,0.08); }
-  .fee-label { color: rgba(247,244,239,0.65); }
-  .fee-amount { color: var(--cream); font-weight: 400; font-family: var(--serif); font-size: 1rem; }
+  .fee-label { color: rgba(247,244,239,0.65); flex: 1; min-width: 0; }
+  .fee-amount { color: var(--cream); font-weight: 400; font-family: var(--serif); font-size: 1rem; flex-shrink: 0; white-space: nowrap; }
 
   .fee-header-row {
     display: flex;
@@ -558,7 +545,7 @@
     display: flex;
     flex-direction: column;
     gap: 28px;
-    margin-top: 40px;
+    margin-top: 32px;
   }
 
   .contact-item {
@@ -679,7 +666,7 @@
   /* ── FOOTER ───────────────────────────────────── */
   footer {
     background: var(--navy);
-    padding: 60px;
+    padding: 28px 60px;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 40px;
@@ -689,14 +676,15 @@
 
   .footer-logo {
     font-family: var(--serif);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 400;
     color: var(--cream);
-    margin-bottom: 8px;
+    margin-bottom: 3px;
   }
 
   .footer-tagline {
     font-size: 0.78rem;
+    line-height: 1.3;
     color: rgba(247,244,239,0.4);
     letter-spacing: 0.06em;
   }
@@ -708,7 +696,7 @@
   .footer-copy {
     font-size: 0.75rem;
     color: rgba(247,244,239,0.3);
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
 
   .footer-links {
@@ -768,7 +756,7 @@
   }
 
   .expect-banner {
-    margin-top: 64px;
+    margin-top: 32px;
     padding: 48px;
     background: var(--navy);
     display: flex;
@@ -838,27 +826,32 @@
     .hamburger { display: flex; flex-direction: column; gap: 5px; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--navy); }
 
-    #home { min-height: auto; }
-    .hero-left { padding: 60px 28px; align-items: center; text-align: center; max-width: none; }
+    #home { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 28px 40px 28px; align-items: center; text-align: center; }
     .hero-actions { justify-content: center; }
+    .hero-photo { min-height: 340px; }
 
-    .process-header { padding: 40px 28px 0 28px; }
+    .process-header { padding: 32px 28px 0 28px; }
     .pillars { grid-template-columns: 1fr; }
-    .pillar { border-right: none; border-bottom: 1px solid rgba(26,39,64,0.08); }
+    .pillar { padding: 18px 28px 32px 28px; border-right: none; border-bottom: 1px solid rgba(26,39,64,0.08); }
 
-    section { padding: 60px 28px; }
-    .section-compact { padding: 48px 28px; }
+    section { padding: 32px 28px; }
+    .section-compact { padding: 32px 28px; }
 
     .expect-grid { grid-template-columns: 1fr 1fr; }
     .expect-step { padding: 28px 20px; border-right: none; border-bottom: 1px solid rgba(26,39,64,0.1); }
     .expect-step:first-child { padding-left: 20px; }
     .expect-step-last { border-right: none; border-bottom: none; padding-right: 20px; }
-    .expect-banner { flex-direction: column; gap: 24px; padding: 32px 24px; margin: 64px -28px 0 -28px; }
+    .expect-banner { flex-direction: column; gap: 24px; padding: 32px 24px; margin: 32px -28px 0 -28px; }
     .expect-banner-cta { width: 100%; text-align: center; box-sizing: border-box; }
 
-    #about, #insurance, #contact { grid-template-columns: 1fr; gap: 40px; }
+    #insurance, #contact { grid-template-columns: 1fr; gap: 20px; }
+    .about-layout { grid-template-columns: 1fr; gap: 32px; }
+    .fees-box { padding: 28px; }
+    .fee-row { font-size: 0.84rem; }
 
     .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 32px 28px; }
     .conditions-grid { grid-template-columns: 1fr 1fr; }
 
     .form-row { grid-template-columns: 1fr; }
@@ -903,6 +896,34 @@
       <a href="#about" class="btn-secondary">Learn More</a>
     </div>
   </div>
+  <div class="hero-right">
+    <img class="hero-photo" src="photo.jpg" alt="Kevin Saladino, MD">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-layout">
+  <div class="about-text reveal">
+    <p class="section-label">About the Doctor</p>
+    <h2 class="section-title">Kevin Saladino, <em>MD</em></h2>
+    <p>Dr. Kevin Saladino is a psychiatrist dedicated to providing exceptional, evidence-based psychiatric care. With a deep commitment to the doctor-patient relationship, Dr. Saladino brings both clinical expertise and genuine compassion to every encounter.</p>
+    <p>His practice is built on the belief that meaningful, lasting improvement comes from truly understanding each patient's unique story — not simply managing symptoms. Dr. Saladino partners with his patients to develop treatment plans that reflect their values, goals, and circumstances.</p>
+  </div>
+
+  <div class="reveal" style="transition-delay:0.15s;margin-top:33px;">
+    <p class="credential-label" style="margin-top:0;">Education &amp; Training</p>
+    <div class="credential-box">
+      <div class="credential">Doctor of Medicine (M.D.) — University of Illinois at Chicago</div>
+      <div class="credential">Psychiatry Residency — The Ohio State University</div>
+      <div class="credential">B.A., Neuroscience — Vanderbilt University</div>
+    </div>
+    <p class="credential-label">Professional Memberships</p>
+    <div class="credential-box">
+      <div class="credential">American Psychiatric Association</div>
+      <div class="credential">American Medical Association</div>
+      <div class="credential">International Society for Sports Psychiatry</div>
+    </div>
+  </div>
 </section>
 
 <!-- PILLARS -->
@@ -926,31 +947,6 @@
     <p>A consistent, trusting relationship built over time — because lasting mental health is not a destination but a journey.</p>
   </div>
 </div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-image-wrap reveal">
-    <img class="about-photo" src="photo.jpg" alt="Kevin Saladino, MD" loading="lazy">
-    <div class="about-image-accent"></div>
-  </div>
-  <div class="about-text reveal" style="transition-delay:0.15s">
-    <p class="section-label">About the Doctor</p>
-    <h2 class="section-title">Kevin Saladino, <em>MD</em></h2>
-    <p>Dr. Kevin Saladino is a psychiatrist dedicated to providing exceptional, evidence-based psychiatric care. With a deep commitment to the doctor-patient relationship, Dr. Saladino brings both clinical expertise and genuine compassion to every encounter.</p>
-    <p>His practice is built on the belief that meaningful, lasting improvement comes from truly understanding each patient's unique story — not simply managing symptoms. Dr. Saladino partners with his patients to develop treatment plans that reflect their values, goals, and circumstances.</p>
-    <div class="about-credentials">
-      <div class="credential">Doctor of Medicine (M.D.) — University of Illinois at Chicago</div>
-      <div class="credential">Psychiatry Residency — The Ohio State University</div>
-      <div class="credential">B.A., Neuroscience — Vanderbilt University</div>
-    </div>
-    <p class="membership-label">Professional Memberships</p>
-    <div class="membership-list">
-      <div class="credential">American Psychiatric Association</div>
-      <div class="credential">American Medical Association</div>
-      <div class="credential">International Society for Sports Psychiatry</div>
-    </div>
-  </div>
-</section>
 
 <!-- SERVICES -->
 <section id="services">
@@ -992,32 +988,34 @@
       <p>Consistent follow-up visits to monitor progress, refine treatment, and provide continuity of care as your life and needs evolve over time.</p>
     </div>
   </div>
+</section>
 
-  <div style="margin-top:48px; padding:40px; background:rgba(247,244,239,0.04); border:1px solid rgba(247,244,239,0.08);" class="reveal">
-    <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--cream);margin-bottom:24px;">Conditions Treated</h3>
-    <div class="conditions-grid">
-      <div class="condition-item">Depression</div>
-      <div class="condition-item">Anxiety Disorders</div>
-      <div class="condition-item">Bipolar Disorder</div>
-      <div class="condition-item">ADHD</div>
-      <div class="condition-item">Trauma &amp; PTSD</div>
-      <div class="condition-item">OCD</div>
-      <div class="condition-item">Adjustment Difficulties</div>
-      <div class="condition-item">Burnout</div>
-      <div class="condition-item">Insomnia &amp; Sleep Disorders</div>
-      <div class="condition-item">Performance Anxiety</div>
-      <div class="condition-item">High-Functioning Anxiety &amp; Perfectionism</div>
-      <div class="condition-item">Life Transitions</div>
-    </div>
-    <p style="margin-top:28px;font-family:var(--serif);font-size:0.95rem;color:var(--sage-light);">All services are available both in-person and via telehealth.</p>
+<!-- CONDITIONS TREATED -->
+<section class="section-compact" style="background:var(--cream-dark);">
+  <p class="section-label reveal">Areas of Focus</p>
+  <h2 class="section-title reveal" style="font-size:clamp(1.6rem,3vw,2.1rem);">Conditions <em>Treated</em></h2>
+  <div class="conditions-grid reveal" style="transition-delay:0.1s;margin-top:16px;">
+    <div class="credential">Depression</div>
+    <div class="credential">Anxiety Disorders</div>
+    <div class="credential">Bipolar Disorder</div>
+    <div class="credential">ADHD</div>
+    <div class="credential">Trauma &amp; PTSD</div>
+    <div class="credential">OCD</div>
+    <div class="credential">Adjustment Difficulties</div>
+    <div class="credential">Burnout</div>
+    <div class="credential">Insomnia &amp; Sleep Disorders</div>
+    <div class="credential">Performance Anxiety</div>
+    <div class="credential">High-Functioning Anxiety &amp; Perfectionism</div>
+    <div class="credential">Life Transitions</div>
   </div>
+  <p class="reveal" style="margin-top:28px;font-family:var(--serif);font-size:0.95rem;color:var(--text-light);">All services are available both in-person and via telehealth.</p>
 </section>
 
 <!-- WHAT TO EXPECT -->
-<section style="background:var(--cream);">
+<section style="background:var(--cream);padding-bottom:0;">
   <p class="section-label">Getting Started</p>
   <h2 class="section-title">What to <em>Expect</em></h2>
-  <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.85;color:var(--text-light);max-width:580px;margin-bottom:64px;">Seeking psychiatric care for the first time can feel uncertain. Here is a simple overview of what the process looks like with Dr. Saladino.</p>
+  <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.85;color:var(--text-light);max-width:580px;margin-bottom:32px;">Seeking psychiatric care for the first time can feel uncertain. Here is a simple overview of what the process looks like with Dr. Saladino.</p>
 
   <div class="expect-grid">
     <div class="expect-step">
@@ -1132,31 +1130,31 @@
   </div>
 
   <div class="reveal" style="transition-delay:0.15s">
-    <p class="section-label">Request Appointment</p>
+    <p class="section-label">Request Consultation</p>
     <h2 class="section-title" style="margin-bottom:32px;">Get in <em>Touch</em></h2>
     <form class="contact-form" id="contact-form" action="https://formspree.io/f/xbdapbek" method="POST">
       <div class="form-row">
         <div class="form-group">
-          <label>First Name</label>
-          <input type="text" name="first_name" placeholder="Jane">
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" placeholder="Jane" autocomplete="given-name" required>
         </div>
         <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" name="last_name" placeholder="Smith">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Smith" autocomplete="family-name" required>
         </div>
       </div>
       <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="jane@example.com">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required>
       </div>
       <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" name="phone" placeholder="(555) 000-0000">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel">
       </div>
       <div class="form-group">
-        <label>How Did You Hear About Us?</label>
-        <select name="referral_source">
-          <option value="" disabled selected>Please select an option</option>
+        <label for="referral_source">How Did You Hear About Us?</label>
+        <select id="referral_source" name="referral_source">
+          <option value="Not specified" selected>Please select an option</option>
           <option value="Google Search">Google Search</option>
           <option value="Psychology Today">Psychology Today</option>
           <option value="Family or Friend">Family or Friend</option>
@@ -1166,24 +1164,25 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Message (Optional)</label>
-        <textarea name="message" placeholder="Please share any details that would help Dr. Saladino prepare for your consultation..."></textarea>
+        <label for="message">Message (Optional)</label>
+        <textarea id="message" name="message" placeholder="Please share any details that would help Dr. Saladino prepare for your consultation..."></textarea>
       </div>
+      <input type="text" name="_gotcha" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
       <button class="form-submit" type="submit">Send Message</button>
     </form>
   </div>
 </section>
 
 <!-- LEGAL MODAL -->
-<div id="legal-modal" style="display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;background:rgba(26,39,64,0.6);backdrop-filter:blur(4px);">
+<div id="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" style="display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;background:rgba(26,39,64,0.6);backdrop-filter:blur(4px);">
   <div style="background:var(--cream);max-width:660px;width:90%;max-height:85vh;overflow-y:auto;padding:56px;position:relative;">
     <button onclick="document.getElementById('legal-modal').style.display='none'" style="position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-light);">Close ✕</button>
     <p style="font-family:var(--sans);font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:20px;">Legal Notice</p>
-    <h2 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:28px;">No Surprises Act — Good Faith Estimate</h2>
+    <h2 id="legal-modal-title" style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:28px;">No Surprises Act — Good Faith Estimate</h2>
     <p style="font-family:var(--serif);font-size:0.98rem;line-height:1.9;color:var(--text-light);margin-bottom:16px;">Under the federal No Surprises Act, patients who do not have insurance or who are not using insurance to pay for their care have the right to receive a Good Faith Estimate of the expected charges for medical services.</p>
     <p style="font-family:var(--serif);font-size:0.98rem;line-height:1.9;color:var(--text-light);margin-bottom:16px;">You have the right to receive a Good Faith Estimate for the total expected cost of any non-emergency services, including psychiatric evaluation and treatment, before you schedule an appointment. If you receive a bill that is at least $400 more than your Good Faith Estimate, you have the right to dispute the charges through a federal patient-provider dispute resolution process.</p>
     <p style="font-family:var(--serif);font-size:0.98rem;line-height:1.9;color:var(--text-light);margin-bottom:16px;">You may request a Good Faith Estimate from our office at any time before scheduling services or during treatment if additional services are recommended.</p>
-    <p style="font-family:var(--sans);font-size:0.8rem;line-height:1.8;color:var(--text-light);">For questions or more information about your rights under the No Surprises Act, visit <a href="https://www.cms.gov/nosurprises" target="_blank" style="color:var(--sage);text-decoration:none;border-bottom:1px solid var(--sage);">cms.gov/nosurprises</a> or call <a href="tel:18009853059" style="color:var(--sage);text-decoration:none;border-bottom:1px solid var(--sage);">1-800-985-3059</a>.</p>
+    <p style="font-family:var(--sans);font-size:0.8rem;line-height:1.8;color:var(--text-light);">For questions or more information about your rights under the No Surprises Act, visit <a href="https://www.cms.gov/nosurprises" target="_blank" rel="noopener noreferrer" style="color:var(--sage);text-decoration:none;border-bottom:1px solid var(--sage);">cms.gov/nosurprises</a> or call <a href="tel:18009853059" style="color:var(--sage);text-decoration:none;border-bottom:1px solid var(--sage);">1-800-985-3059</a>.</p>
   </div>
 </div>
 
@@ -1192,11 +1191,11 @@
   <div>
     <p class="footer-logo">Kevin Saladino, MD — Psychiatry</p>
     <p class="footer-tagline">Thoughtful psychiatric care. Centered on you.</p>
-    <p class="footer-tagline" style="margin-top:14px;line-height:1.6;">One Lincoln Centre<br>18 West 140 Butterfield Road, Suite 1500<br>Oakbrook Terrace, IL</p>
-    <p class="footer-tagline" style="margin-top:8px;"><a href="tel:16305578244" style="color:inherit;text-decoration:none;">(630) 557-8244</a></p>
+    <p class="footer-tagline" style="margin-top:6px;">One Lincoln Centre<br>18 West 140 Butterfield Road, Suite 1500<br>Oakbrook Terrace, IL</p>
+    <p class="footer-tagline" style="margin-top:4px;"><a href="tel:16305578244" style="color:inherit;text-decoration:none;">(630) 557-8244</a></p>
   </div>
   <div class="footer-right">
-    <p class="footer-copy">© 2026 Kevin Saladino, MD. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Kevin Saladino Psychiatry, PLLC. All rights reserved.</p>
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
@@ -1255,6 +1254,14 @@
     if (e.target === this) this.style.display = 'none';
   });
 
+  // Modal close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('legal-modal');
+      if (modal.style.display !== 'none') modal.style.display = 'none';
+    }
+  });
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
@@ -1266,6 +1273,25 @@
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+    updateNavHeight();
+  });
+
+  // Keep scroll-margin-top in sync with the nav's actual rendered height
+  function updateNavHeight() {
+    document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+  }
+  updateNavHeight();
+  window.addEventListener('resize', updateNavHeight);
+  window.addEventListener('load', updateNavHeight);
+
+  // Pre-shrink the nav before jumping to an anchor, so the scroll offset
+  // used to compute the destination matches the nav's final (scrolled) height
+  // instead of the taller, unscrolled height it may still have at click time.
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.add('scrolled');
+      updateNavHeight();
+    });
   });
 </script>
 
