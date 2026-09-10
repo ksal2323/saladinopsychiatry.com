@@ -1288,13 +1288,27 @@
   // viewport units (vh, dvh) don't always keep a position:fixed overlay
   // perfectly in sync with the true visible screen — setting the height
   // directly from JS at the moment the modal opens sidesteps that.
+  // iOS Safari's collapsible address bar makes position:fixed elements
+  // render inconsistently until the page has scrolled at least once (the
+  // "box lowers slightly on scroll" symptom). Locking the background page
+  // from scrolling entirely while a modal is open avoids that mismatch
+  // rather than fighting it.
+  let scrollLockY = 0;
   function openModal(id) {
     const modal = document.getElementById(id);
     modal.style.height = window.innerHeight + 'px';
     modal.style.display = 'flex';
+    scrollLockY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = (-scrollLockY) + 'px';
+    document.body.style.width = '100%';
   }
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollLockY);
   }
   window.addEventListener('resize', () => {
     ['legal-modal', 'scheduling-modal'].forEach(id => {
