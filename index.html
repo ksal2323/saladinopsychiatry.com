@@ -830,7 +830,7 @@
 
   .charm-embed {
     width: 100%;
-    height: 1000px;
+    height: 700px;
     border: none;
     overflow: hidden;
     display: block;
@@ -843,7 +843,7 @@
     nav, nav.scrolled { padding: 20px 28px; }
 
     .modal-box { padding: 24px; max-height: 88vh; }
-    .charm-embed { height: 720px; }
+    .charm-embed { height: 600px; }
 
     .nav-links { display: none; }
     .nav-cta { display: none; }
@@ -1256,6 +1256,17 @@
     if (window.innerWidth > 900) {
       navLinks.style.display = '';
       menuOpen = false;
+    }
+  });
+
+  // If the Charm calendar broadcasts its real content height via postMessage,
+  // resize the embed to match instead of leaving a fixed, guessed height.
+  // Harmless no-op if Charm doesn't send this.
+  window.addEventListener('message', function(e) {
+    if (!/charmtracker\.com$/.test(new URL(e.origin).hostname)) return;
+    const h = typeof e.data === 'number' ? e.data : (e.data && e.data.height);
+    if (h && h > 100) {
+      document.querySelectorAll('.charm-embed').forEach(f => { f.style.height = h + 'px'; });
     }
   });
 
