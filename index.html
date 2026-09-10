@@ -843,6 +843,23 @@
     overscroll-behavior: contain;
   }
 
+  .sched-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+
+  .sched-heading {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+
   .charm-embed {
     width: 100%;
     height: 550px;
@@ -857,8 +874,10 @@
   @media (max-width: 900px) {
     nav, nav.scrolled { padding: 20px 28px; }
 
-    .modal-box { padding: 24px; max-height: 94vh; max-height: 94dvh; }
-    .charm-embed { height: 480px; }
+    .modal-box { padding: 20px; max-height: 96vh; max-height: 96dvh; }
+    .charm-embed { height: 440px; }
+    .sched-eyebrow { margin-bottom: 8px; }
+    .sched-heading { font-size: 1.15rem; margin-bottom: 12px; }
 
     .nav-links { display: none; }
     .nav-cta { display: none; }
@@ -1204,8 +1223,8 @@
 <div id="scheduling-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="scheduling-modal-title" style="display:none;">
   <div class="modal-box" style="max-width:720px;width:92%;">
     <button onclick="closeModal('scheduling-modal')" style="position:absolute;top:16px;right:20px;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-light);">Close ✕</button>
-    <p style="font-family:var(--sans);font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;">Complimentary Consultation</p>
-    <h2 id="scheduling-modal-title" style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--navy);margin-bottom:20px;">Schedule Your Free 15-Minute Call</h2>
+    <p class="sched-eyebrow">Complimentary Consultation</p>
+    <h2 id="scheduling-modal-title" class="sched-heading">Schedule Your Free Call</h2>
     <iframe class="charm-embed" src="https://ehr.charmtracker.com/publicCal.sas?method=getCal&digest=40685da8fb68e49647cce5b694b4ef06713a76c36115277b5c3757b128f27d3c3ab0a83eb9886769210cb1e644a92e71a0ae868b6eb0918a" frameborder="0"></iframe>
   </div>
 </div>
